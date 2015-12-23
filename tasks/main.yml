@@ -1,0 +1,21 @@
+---
+- name: Install pip for docker workaround
+  shell: wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py
+
+- name: install docker-py workaround
+  pip: name=docker-py
+
+- name: start webserver container
+  docker:
+    name: "{{ container_name }}"
+    image: antonienko/nginx-php-fpm:v0.3
+    state: reloaded
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "{{ local_web_folder }}:/var/www"
+      - "{{ nginx_config_folder}}:/etc/nginx/sites-enabled"
+      - "{{ certs_foler}}:/etc/nginx/ssl"
+    links: "{{linked_containers}}"
+    env: "{{env_vars}}"
