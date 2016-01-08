@@ -13,6 +13,6 @@
     volumes:
       - "{{ local_web_folder }}:/var/www"
       - "{{ nginx_config_folder}}:/etc/nginx/sites-enabled"
-      - "{{ certs_foler}}:/etc/nginx/ssl"
+      - "{{ certs_folder}}:/etc/nginx/ssl"
     links: "{{linked_containers}}"
     env: "{{env_vars}}"
