@@ -5,7 +5,7 @@
 - name: start webserver container
   docker:
     name: "{{ container_name }}"
-    image: antonienko/nginx-php-fpm:v0.3
+    image: antonienko/nginx-php-fpm:v0.4
     state: reloaded
     ports:
       - "80:80"
