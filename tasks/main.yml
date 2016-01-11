@@ -11,7 +11,7 @@
       - "80:80"
       - "443:443"
     volumes:
-      - "{{ local_web_folder }}:/var/www"
+      - "{{ local_web_folder }}:/deploy"
       - "{{ nginx_config_folder}}:/etc/nginx/sites-enabled"
       - "{{ certs_folder}}:/etc/nginx/ssl"
     links: "{{linked_containers}}"
