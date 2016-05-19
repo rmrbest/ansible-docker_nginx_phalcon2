@@ -6,7 +6,7 @@
   docker:
     name: "{{ container_name }}"
     image: rmrbest/nginx-php-fpm:latest
-    state: reloaded
+    state: started
     ports:
       - "80:80"
       - "443:443"
