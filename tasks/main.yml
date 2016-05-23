@@ -8,6 +8,7 @@
     image: rmrbest/nginx-php-fpm:latest
     state: reloaded
     log_driver: syslog
+    detach: true
     ports:
       - "80:80"
       - "443:443"
